@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+			background-color: #0c0c18;
+			color: white;
+		}
+		span.token.function {
+			color: dodgerblue;
+		}
+		span.token.keyword {
+			color: deepskyblue;
+		}
+		span.token.comment {
+			color: gray;
+		}
+		span.token.punctuation {
+			color:  orange;
+		}
+		span.token.wildcard {
+			color: cyan;
+		}
+		span.token.operator {
+			color: beige;
+		}
+		span.token.string {
+			color: yellowgreen;
+		}
+		span.token.variable {
+			color: violet;
+		}
+		blockquote {
+			background-color: #181830;
+			margin: 10px;
+			padding: 1px 0px 1px 10px;
+			border-left: 7px solid #303060;
+		}
+		pre.language-bash {
+			background: black;
+			border-radius: 5px;
+			border-top: 15px solid dimgray;
+			width: 62.5%;
+			display: block;
+			overflow: scroll;
+			tab-size: 0.1em;
+			padding-top: 10px;
+		}
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+		a:hover {
+			color: cyan;
+		}
+    </style>
+</head>
+
+<body>
+    <h1 id="linux-command-overview-and-usage-guide">Linux Command Overview and Usage Guide</h1>
+    <h2 id="basic-file-commands">Basic File Commands</h2>
+    <h3 id="touch-command">
+        <code><span class="token function"><a href="#touch-command">touch</a></span></code> Command</h3>
+    <blockquote>
+        <p>Updates the timestamps of a file, useful for manually managing systems or rebuilding specific parts.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#touch-command">touch</a></span> name.txt        <span class="token comment"># Creates an empty file with the specified name</span>
+				<span class="token function"><a href="#touch-command">touch</a></span> a<span class="token punctuation">{</span>1,7,9<span class="token punctuation">}</span>.html   <span class="token comment"># Creates files named a1.html, a7.html, a9.html</span></code>
+			</code>
+	</pre>
+    <h3 id="echo-command">
+        <code><span class="token function"><a href="#echo-command">echo</a></span></code> Command</h3>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#echo-command">echo</a></span> <span class="token punctuation">{</span>z<span class="token punctuation">..</span>a<span class="token punctuation">}</span>	<span class="token comment"># Outputs letters from 'z' to 'a' in reverse order</span>
+				<span class="token function"><a href="#echo-command">echo</a></span> a<span class="token punctuation">{</span>A<span class="token punctuation">{</span>1,2<span class="token punctuation">}</span>,B<span class="token punctuation">{</span>3,4<span class="token punctuation">}</span><span class="token punctuation">}</span>b    <span class="token comment"># Outputs nested patterns: aA1b aA2b aB3b aB4b</span>
+			</code>
+		</pre>
+    <h3 id="cp-command">
+        <code><span class="token function"><a href="#cp-command">cp</a></span></code> Command</h3>
+    <blockquote>
+        <p>Copies files.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#cp-command">cp</a></span> <span class="token wildcard">*</span>.html Html       <span class="token comment"># Copies all .html files to the "Html" directory</span>
+				<span class="token function"><a href="#cp-command">cp</a></span> -i <span class="token wildcard">*</span>.html html2   <span class="token comment"># Interactive copy (prompts before overwriting)</span>
+			</code>
+		</pre>
+    <h3 id="mv-command">
+        <code><span class="token function"><a href="#cp-command">mv</a></span></code> Command</h3>
+    <blockquote>
+        <p>Moves or renames files.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#cp-command">mv</a></span> <span class="token wildcard">*</span>.html HTML-backup   <span class="token comment"># Moves all .html files to the "HTML-backup" directory</span>
+			</code>
+		</pre>
+    <h3 id="rm-command">
+        <code><span class="token function"><a href="#rm-command">rm</a></span></code> Command</h3>
+    <blockquote>
+        <p>Removes files and directories.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#rm-command">rm</a></span> a1.bak   <span class="token comment"># Removes the file a1.bak</span>
+				<span class="token function"><a href="#rm-command">rm</a></span> -rf /    <span class="token comment"># Caution! Deletes the entire filesystem</span>
+			</code>
+		</pre>
+    <h3 id="mkdir-command">
+        <code><span class="token function"><a href="#mkdir-command">mkdir</a></span></code> Command</h3>
+    <blockquote>
+        <p>Creates directories.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#mkdir-command">mkdir</a></span> <span class="token punctuation">{</span>2019<span class="token punctuation">..</span>2024<span class="token punctuation">}</span>-<span class="token punctuation">{</span>01<span class="token punctuation">..</span>12<span class="token punctuation">}</span> <span class="token comment"># Creates directories for each month from 2019 to 2024</span>
+			</code>
+		</pre>
+    <h2 id="wildcards-and-patterns">Wildcards and Patterns</h2>
+    <h3 id="using-wildcards">Using Wildcards</h3>
+    <blockquote>
+        <p>
+            <code><span class="token wildcard">*</span></code> matches zero or more characters, <code>?</code> matches exactly one character.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#ls-command">ls</a></span> a<span class="token wildcard">*</span>         <span class="token comment"># Lists all files starting with 'a'</span>
+				<span class="token function"><a href="#ls-command">ls</a></span> a<span class="token wildcard">?</span>.html    <span class="token comment"># Lists files with 'a' followed by any one character and ending in .html</span>
+			</code>
+		</pre>
+    <h2 id="utility-commands">Utility Commands</h2>
+    <h3 id="ls-command">
+        <code><span class="token function"><a href="#ls-command">ls</a></span></code> Command</h3>
+    <blockquote>
+        <p>Lists directory contents.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#ls-command">ls</a></span> -a   <span class="token comment"># Shows all files, including hidden ones</span>
+				<span class="token function"><a href="#ls-command">ls</a></span> -l   <span class="token comment"># Long listing format</span>
+			</code>
+		</pre>
+    <h3 id="pwd-command">
+        <code><span class="token function"><a href="#pwd-command">pwd</a></span></code> Command</h3>
+    <blockquote>
+        <p>Displays the current working directory</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#pwd-command">pwd</a></span>
+				/home/kali
+			</code>
+		</pre>
+    <h3 id="cd-command">
+        <code><span class="token function"><a href="#cd-command">cd</a></span></code> Command</h3>
+    <blockquote>
+        <p>Changes the current directory.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#cd-command">cd</a></span> /          <span class="token comment"># Changes to the root directory</span>
+				<span class="token function"><a href="#cd-command">cd</a></span> ~          <span class="token comment"># Changes to the home directory</span>
+			</code>
+		</pre>
+    <h3 id="man-command">
+        <code><span class="token function"><a href="#man-command">man</a></span></code> Command</h3>
+    <blockquote>
+        <p>Shows the manual page for a command</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#man-command">man</a></span> <span class="token function"><a href="#du-command">du</a></span>
+			</code>
+		</pre>
+    <h2 id="searching-and-filtering">Searching and Filtering</h2>
+    <h3 id="grep-command">
+        <code><span class="token function"><a href="#grep-command">grep</a></span></code> Command</h3>
+    <blockquote>
+        <p>Searches for patterns in files or outputs.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#history-command">history</a></span> <span class="token operator">|</span> <span class="token function"><a href="#grep-command">grep</a></span> ffuf    <span class="token comment"># Searches for "ffuf" in the command history</span>
+				<span class="token function"><a href="#history-command">history</a></span> <span class="token operator">|</span> <span class="token function"><a href="#grep-command">grep</a></span> -v ffuf <span class="token comment"># Searches for lines without "ffuf" in the command history</span>
+			</code>
+		</pre>
+    <h3 id="find-command">
+        <code><span class="token function"><a href="#find-command">find</a></span></code> Command</h3>
+    <blockquote>
+        <p>Finds files or directories based on specified criteria</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#find-command">find</a></span> <span class="token keyword">.</span> -type f -print                     <span class="token comment"># Finds files in the current directory</span>
+				<span class="token function"><a href="#find-command">find</a></span> / -type f -name <span class="token string">'&lt;file&gt;'</span> 2<span class="token operator">&gt;</span>/dev/null <span class="token comment"># Finds a file from root (slow) and removes any errors</span>
+			</code>
+		</pre>
+    <h3 id="uniq-command">
+        <code><span class="token function"><a href="#uniq-command">uniq</a></span></code> Command</h3>
+    <blockquote>
+        <p>Filters out repeated lines</p>
+    </blockquote>
+    <blockquote>
+        <p>Expects sorted input</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function">sort</span> -n nums.txt <span class="token operator">|</span> <span class="token function"><a href="#uniq-command">uniq</a></span>	<span class="token comment"># Removes duplicates after sorting by numeric</span>
+			</code>
+		</pre>
+    <h2 id="redirection-and-piping">Redirection and Piping</h2>
+    <h3 id="using-pipes-and-redirection">Using Pipes and Redirection</h3>
+    <h4 id="pipe">Pipe</h4>
+    <blockquote>
+        <p>Sends the output of one command to another.</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function">cat</span> file_list.txt <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">&gt;</span> sorted_file_list.txt <span class="token comment"># Sorts and redirects output</span>
+			</code>
+		</pre>
+    <h4 id="redirection">Redirection</h4>
+	<blockquote>
+        <p>Send input from a file or output to a file</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function">sort</span> <span class="token operator">&lt;</span> file_list.txt <span class="token operator">&gt;</span> sorted_file_list.txt    <span class="token comment"># Sorts and redirects output</span>
+			</code>
+		</pre>
+    <h2 id="disk-and-system-information">Disk and System Information</h2>
+    <h3 id="du-command">
+        <code><span class="token function"><a href="#du-command">du</a></span></code> Command</h3>
+    <blockquote>
+        <p>Displays disk usage</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#du-command">du</a></span>
+				<span class="token function"><a href="#du-command">du</a></span> <span class="token operator">|</span> <span class="token function">sort</span> -nr   <span class="token comment"># Sorts by disk usage in descending order</span>
+			</code>
+		</pre>
+    <h3 id="wc-command">
+        <code><span class="token function"><a href="#wc-command">wc</a></span></code> Command</h3>
+    <blockquote>
+        <p>Counts words, lines, or characters in a file</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#wc-command">wc</a></span> -l nums.txt   <span class="token comment"># Counts lines in nums.txt</span>
+				<span class="token function"><a href="#wc-command">wc</a></span> -w nums.txt   <span class="token comment"># Counts words in nums.txt</span>
+				<span class="token function"><a href="#wc-command">wc</a></span> -c nums.txt   <span class="token comment"># Counts characters in nums.txt</span>
+			</code>
+		</pre>
+    <blockquote>
+        <p>Can also be piped</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#history-command">history</a></span> <span class="token operator">|</span> <span class="token function"><a href="#wc-command">wc</a></span>
+				420    2118    17814
+			      <span class="token comment"># lines  words   characters </span>
+			</code>
+		</pre>
+    <h2 id="network-and-system-services">Network and System Services</h2>
+    <h3 id="service-command">
+        <code><span class="token function"><a href="#service-command">service</a></span></code> Command</h3>
+    <blockquote>
+        <p>Manages services on Linux</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#service-command">service</a></span> apache2 start   <span class="token comment"># Starts the Apache2 service</span>
+			</code>
+		</pre>
+    <h3 id="updatedb-command">
+        <code><span class="token function"><a href="#updatedb-command">updatedb</a></span></code> Command</h3>
+    <blockquote>
+        <p>Updates the filesystem database</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#updatedb-command">updatedb</a></span>
+			</code>
+		</pre>
+    <h3 id="locate-command">
+        <code><span class="token function"><a href="#locate-command">locate</a></span></code> Command</h3>
+    <blockquote>
+        <p>Finds files by name using the updated database<br>
+            <code><a href="#find-command">find</a></code> is more extensive than <code><a href="#locate-command">locate</a></code> but much slower</p>
+    </blockquote>
+    <pre class=" language-bash">
+			<code class="prism  language-bash">
+				<span class="token function"><a href="#locate-command">locate</a></span> sbd
+			</code>
+		</pre>
+    <h2 id="web-scraping-example">Web Scraping Example</h2>
+    <h3 id="web-scraping-with-wget-and-grep">Web Scraping with <code>wget</code> and <code><a href="#grep-command">grep</a></code>
+    </h3>
+    <blockquote>
+        <p>Download a webpage and extract specific links</p>
+    </blockquote>
+    <pre class=" language-bash">
+				<code class="prism  language-bash">
+					<span class="token function"><a href="#mkdir-command">mkdir</a></span> dom_scrape
+					<span class="token function"><a href="#cd-command">cd</a></span> dom_scrape
+					<span class="token function">wget</span> www.cisco.com
+					<span class="token function"><a href="#rm-command">grep</a></span> <span class="token string">'href='</span> index.html <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'/'</span> -f3 <span class="token operator">|</span> <span class="token function"><a href="#grep-command">grep</a></span> <span class="token string">'\.cisco\.com'</span> <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'"'</span> -f1 <span class="token operator">|</span> <span class="token function">sort</span> -u <span class="token operator">&gt;</span> cisco_hosts.txt
+				</code>
+			</pre>
+    <h3 id="getting-ips-from-urls">Getting IPs from URLs</h3>
+    <pre class=" language-bash">
+				<code class="prism  language-bash">
+					<span class="token keyword">for</span> machine <span class="token keyword">in</span> <span class="token variable"> <span class="token variable">$(</span><span class="token function">cat</span> cisco_hosts.txt<span class="token variable">)</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+							host <span class="token variable">$machine</span>
+					<span class="token keyword">done</span>	<span class="token operator">|</span> <span class="token function"><a href="#grep-command">grep</a></span> <span class="token string">'has address'</span> <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">' '</span> -f4 <span class="token operator">|</span> <span class="token function">sort</span> -u
+				</code>
+			</pre>
+    <h2 id="additional-commands-and-shortcuts">Additional Commands and Shortcuts</h2>
+    <h3 id="type-command">
+        <code><span class="token function"><a href="#type-command">type</a></span></code>
+    </h3>
+    <blockquote>
+        <p>Shows the type of a command.</p>
+    </blockquote>
+    <pre class=" language-bash">
+				<code class="prism  language-bash">
+					<span class="token function"><a href="#type-command">type</a></span> <span class="token function"><a href="#ls-command">ls</a></span>
+					ls is an alias for ls --color=auto
+				</code>
+			</pre>
+    <h3 id="which-command">
+        <code><span class="token function"><a href="#which-command">which</a></span></code>
+    </h3>
+    <blockquote>
+        <p>Locates the executable path of a command.</p>
+    </blockquote>
+    <pre class=" language-bash">
+				<code class="prism  language-bash">
+					<span class="token function"><a href="#which-command">which</a></span> <span class="token function"><a href="#cp-command">cp</a></span>
+					/usr/bin/cp
+				</code>
+			</pre>
+    <h3 id="clear-command">
+        <code><a href="#clear-command">clear</a></code>
+    </h3>
+    <blockquote>
+        <p>Clears the screen</p>
+    </blockquote>
+    <pre class=" language-bash">
+				<code class="prism  language-bash"> <span class="token function"><a href="#type-command">clear</a></span> </code>
+			</pre>
+    <h3 id="history-command">
+        <code><a href="#history-command">history</a></code>
+    </h3>
+    <blockquote>
+        <p>Displays command history.</p>
+    </blockquote>
+    <pre class=" language-bash">
+				<code class="prism  language-bash"> <span class="token function"><a href="#history-command">history</a></span> </code>
+			</pre>
+</body>
+
+</html>
