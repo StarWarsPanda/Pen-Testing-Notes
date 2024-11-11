@@ -260,7 +260,7 @@
 					<span class="token function"><a href="#mkdir-command">mkdir</a></span> dom_scrape
 					<span class="token function"><a href="#cd-command">cd</a></span> dom_scrape
 					<span class="token function">wget</span> www.cisco.com
-					<span class="token function"><a href="#rm-command">grep</a></span> <span class="token string">'href='</span> index.html <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'/'</span> -f3 <span class="token operator">|</span> <span class="token function"><a href="#grep-command">grep</a></span> <span class="token string">'\.cisco\.com'</span> <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'"'</span> -f1 <span class="token operator">|</span> <span class="token function">sort</span> -u <span class="token operator">&gt;</span> cisco_hosts.txt
+					<span class="token function"><a href="#grep-command">grep</a></span> <span class="token string">'href='</span> index.html <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'/'</span> -f3 <span class="token operator">|</span> <span class="token function"><a href="#grep-command">grep</a></span> <span class="token string">'\.cisco\.com'</span> <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'"'</span> -f1 <span class="token operator">|</span> <span class="token function">sort</span> -u <span class="token operator">&gt;</span> cisco_hosts.txt
 				</code>
 			</pre>
     <h3 id="getting-ips-from-urls">Getting IPs from URLs</h3>
@@ -297,16 +297,16 @@
 				</code>
 			</pre>
     <h3 id="clear-command">
-        <code><a href="#clear-command">clear</a></code>
+        <code><span class="token function"><a href="#clear-command">clear</a></span></code>
     </h3>
     <blockquote>
         <p>Clears the screen</p>
     </blockquote>
     <pre class=" language-bash">
-				<code class="prism  language-bash"> <span class="token function"><a href="#type-command">clear</a></span> </code>
+				<code class="prism  language-bash"> <span class="token function"><a href="#clear-command">clear</a></span> </code>
 			</pre>
     <h3 id="history-command">
-        <code><a href="#history-command">history</a></code>
+        <code><span class="token function"><a href="#history-command">history</a></span></code>
     </h3>
     <blockquote>
         <p>Displays command history.</p>
